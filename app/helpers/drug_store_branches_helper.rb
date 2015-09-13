@@ -1,0 +1,2 @@
+module DrugStoreBranchesHelper
+end

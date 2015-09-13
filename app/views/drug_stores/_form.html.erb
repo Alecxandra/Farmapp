@@ -1,0 +1,33 @@
+<%= form_for(@drug_store) do |f| %>
+  <% if @drug_store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@drug_store.errors.count, "error") %> prohibited this drug_store from being saved:</h2>
+
+      <ul>
+      <% @drug_store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :web_page_url %><br>
+    <%= f.text_field :web_page_url %>
+  </div>
+  <div class="field">
+    <%= f.label :logo_img_url %><br>
+    <%= f.text_field :logo_img_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

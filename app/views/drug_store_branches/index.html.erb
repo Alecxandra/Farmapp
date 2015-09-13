@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Drug Store Braches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drug_store_branches.each do |drug_store_branch| %>
+      <tr>
+        <td><%= drug_store_branch.name %></td>
+        <td><%= drug_store_branch.address %></td>
+        <td><%= drug_store_branch.latitude %></td>
+        <td><%= drug_store_branch.longitude %></td>
+        <td><%= link_to 'Show', drug_store_branch %></td>
+        <td><%= link_to 'Edit', edit_drug_store_branch_path(drug_store_branch) %></td>
+        <td><%= link_to 'Destroy', drug_store_branch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Drug store branch', new_drug_store_branch_path %>
