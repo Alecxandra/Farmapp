@@ -1,34 +1,4 @@
-
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Farmapp</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <header>
+<header>
         <div class="header-content">
                     
             <div class="header-content-inner">
@@ -40,7 +10,7 @@
                   <span class="input-group-addon btn btn-primary"><span class="fa fa-search"></span></span>
                </div>
               <br><br>
-              
+              <%= link_to 'Farmacia mas cercana', search_path, class: "btn btn-primary btn-xl pagege-scroll"%>
             </div>
         </div>
     </header>
@@ -67,10 +37,45 @@
     </section>
     
 <section id="about">
+  <br><br>
   <div class="container">
      <div class="col-md-6 col-md-offset-4">
        <%= image_tag 'wildlogo.png', height: '350' %>
      </div>
   </div>
 </section>
+
+<section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h1 class="section-heading">Let's Get In Touch!</h1>
+                    <hr class="primary">
+                </div>
+            </div>
+          <br><br>
+            <div class="row">
+              <div class="col-12 col-sm-3 text-center">
+                <i class="fa fa-facebook-square fa-5x wow bounceIn" 
+                 style="visibility: visible; animation-name: bounceIn;"></i>
+                <p><a href="https://www.facebook.com/WildproCo"></a>WildproCo</p>
+              </div>
+              <div class="col-12 col-sm-3 text-center">
+                <i class="fa fa-home fa-5x wow bounceIn" 
+                 style="visibility: visible; animation-name: bounceIn;"></i>
+                <p><a href="https://www.wildpro.co"></a>wildpro.co</p>
+              </div>
+              <div class="col-12 col-sm-3 text-center">
+               <i class="fa fa-envelope fa-5x wow bounceIn" 
+                 style="visibility: visible; animation-name: bounceIn;"></i>
+                 <p><a href="mailto:your-email@your-domain.com"></a>feedback@wildpro.com</p>
+              </div>
+              <div class="col-12 col-sm-3 text-center">
+               <i class="fa fa-twitter fa-5x wow bounceIn" 
+                 style="visibility: visible; animation-name: bounceIn;"></i>
+                 <p><a href="https://twitter.com/WildPro"></a>WildPro</p>
+              </div>
+            </div>
+        </div>
+    </section>
 

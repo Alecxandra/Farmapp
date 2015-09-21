@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'test/index'
-
+  get 'search', to: "home#search", as: "search"
   resources :brands
   resources :medicines
   
