@@ -1,10 +1,11 @@
 class DrugStoreBranchesController < ApplicationController
+  before_action :set_drug_store
   before_action :set_drug_store_branch, only: [:show, :edit, :update, :destroy]
 
   # GET /drug_store_branches
   # GET /drug_store_branches.json
   def index
-    @drug_store_branches = DrugStoreBranch.all
+    @drug_store_branches = @drug_store.drug_store_branches
   end
 
   # GET /drug_store_branches/1
@@ -14,7 +15,7 @@ class DrugStoreBranchesController < ApplicationController
 
   # GET /drug_store_branches/new
   def new
-    @drug_store_branch = DrugStoreBranch.new
+    @drug_store_branch = @drug_store.drug_store_branches.new
   end
 
   # GET /drug_store_branches/1/edit
@@ -24,12 +25,12 @@ class DrugStoreBranchesController < ApplicationController
   # POST /drug_store_branches
   # POST /drug_store_branches.json
   def create
-    @drug_store_branch = DrugStoreBranch.new(drug_store_branch_params)
+    @drug_store_branch = @drug_store.drug_store_branches.new(drug_store_branch_params)
 
     respond_to do |format|
       if @drug_store_branch.save
-        format.html { redirect_to @drug_store_branch, notice: 'Drug store branch was successfully created.' }
-        format.json { render :show, status: :created, location: @drug_store_branch }
+        format.html { redirect_to [@drug_store, @drug_store_branch], notice: 'Drug store branch was successfully created.' }
+        format.json { render :show, status: :created, location: [@drug_store, @drug_store_branch] }
       else
         format.html { render :new }
         format.json { render json: @drug_store_branch.errors, status: :unprocessable_entity }
@@ -42,8 +43,8 @@ class DrugStoreBranchesController < ApplicationController
   def update
     respond_to do |format|
       if @drug_store_branch.update(drug_store_branch_params)
-        format.html { redirect_to @drug_store_branch, notice: 'Drug store branch was successfully updated.' }
-        format.json { render :show, status: :ok, location: @drug_store_branch }
+        format.html { redirect_to [@drug_store, @drug_store_branch], notice: 'Drug store branch was successfully updated.' }
+        format.json { render :show, status: :ok, location: [@drug_store, @drug_store_branch] }
       else
         format.html { render :edit }
         format.json { render json: @drug_store_branch.errors, status: :unprocessable_entity }
@@ -56,7 +57,7 @@ class DrugStoreBranchesController < ApplicationController
   def destroy
     @drug_store_branch.destroy
     respond_to do |format|
-      format.html { redirect_to drug_store_branches_url, notice: 'Drug store branch was successfully destroyed.' }
+      format.html { redirect_to drug_store_drug_store_branches_url, notice: 'Drug store branch was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +65,15 @@ class DrugStoreBranchesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_drug_store_branch
-      @drug_store_branch = DrugStoreBranch.find(params[:id])
+      @drug_store_branch = @drug_store.drug_store_branches.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drug_store_branch_params
-      params.require(:drug_store_branch).permit(:name, :address, :latitude, :longitude)
+      params.require(:drug_store_branch).permit(:drug_store_id, :name, :address, :latitude, :longitude)
+    end
+  
+    def set_drug_store
+      @drug_store = DrugStore.find(params[:drug_store_id])
     end
 end

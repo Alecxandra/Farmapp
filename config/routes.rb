@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  get 'test/index'
+
   resources :brands
   resources :medicines
-  resources :drug_store_branches
-  resources :drug_stores
+  
+  resources :drug_stores do
+    resources :drug_store_branches
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

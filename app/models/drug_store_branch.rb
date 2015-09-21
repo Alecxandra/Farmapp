@@ -3,6 +3,7 @@ class DrugStoreBranch
   include Mongoid::Timestamps
   
   embeds_many :phones
+  belongs_to :drug_store
   
   field :name, type: String
   field :address, type: String

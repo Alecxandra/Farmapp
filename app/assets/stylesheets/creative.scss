@@ -125,7 +125,9 @@ aside {
     }
 
     .navbar-default .navbar-header .navbar-brand {
-        color: #7F8184;
+      color: #FAFAFA;
+      text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+      
     }
 
     .navbar-default .navbar-header .navbar-brand:hover,
@@ -135,7 +137,9 @@ aside {
 
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
-        color: #7F8184;
+       color: #FAFAFA;
+      font-size: 15px;
+      text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
     }
 
     .navbar-default .nav > li>a:hover,

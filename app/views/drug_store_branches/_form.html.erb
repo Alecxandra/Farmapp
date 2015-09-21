@@ -1,4 +1,4 @@
-<%= form_for(@drug_store_branch) do |f| %>
+<%= form_for([@drug_store, @drug_store_branch]) do |f| %>
   <% if @drug_store_branch.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@drug_store_branch.errors.count, "error") %> prohibited this drug_store_branch from being saved:</h2>
